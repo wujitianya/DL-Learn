@@ -100,6 +100,49 @@ def forward(network, x):
 network = init_network()
 x = np.array([1.0, 0.5])
 y = forward(network, x)
-print(y) # [ 0.31682708 0.69627909]
+# print(y) # [ 0.31682708 0.69627909]
 
-# test 笔记本
+# test 笔记本 —— 已完成
+
+# 改进版softmax
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a - c)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
+
+import sys, os
+sys.path.append(os.pardir) #为了导入父目录中的文件而进行的设定
+from dataset.mnist import load_mnist
+import numpy as np
+from PIL import Image
+
+def img_show(img):
+    pil_img = Image.fromarray(np.uint8(img))
+    pil_img.show()
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+img = x_train[16]
+label = t_train[16]
+print(label)
+print(img.shape)
+'''
+cc = 0
+for i in range(len(img)):
+    if img[i] > 0:
+        print(i, ":", img[i])
+        cc += 1
+print("sum is:", cc)
+'''
+img = img.reshape(28, 28)
+img_show(img)
+
+
+'''
+print(x_train.shape)
+print(t_train.shape)
+print(x_test.shape)
+print(t_test.shape)
+'''
+
