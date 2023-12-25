@@ -65,3 +65,5 @@ def myXOR(x1, x2):
     y = myAND2(s1, s2)
     return y
 
+
+print("this is ch2.py")

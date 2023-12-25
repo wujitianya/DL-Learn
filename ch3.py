@@ -31,9 +31,9 @@ def sigmoidphysical():
     plt.plot(x,y)
     plt.ylim(-0.1, 1.1)
     plt.show()
-    
+
 # sigmoidphysical()
-    
+
 def relu(x):
     return np.maximum(0, x)
 '''
@@ -50,17 +50,17 @@ def identity_function(x):
 def form3_9():
     X = np.array([1.0, 0.5])
     W1 = np.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])
-    B1 = np.array([0.1, 0.2, 0.3])    
+    B1 = np.array([0.1, 0.2, 0.3])
     print(X.shape)
     print(W1.shape)
     print(B1.shape)
-    
+
     A1 = np.dot(X, W1) + B1
     print(A1)
     
     Z1 = sigmoid(A1)
     print(Z1)
-    
+
     W2 = np.array([[0.1, 0.4], [0.2, 0.5], [0.3, 0.6]])
     B2 = np.array([0.1, 0.2])
     print(Z1.shape) # (3,)
@@ -121,12 +121,18 @@ from PIL import Image
 def img_show(img):
     pil_img = Image.fromarray(np.uint8(img))
     pil_img.show()
-(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 
+# (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+'''
 img = x_train[16]
 label = t_train[16]
 print(label)
 print(img.shape)
+
+img = img.reshape(28, 28)
+img_show(img)
+'''
 '''
 cc = 0
 for i in range(len(img)):
@@ -135,10 +141,6 @@ for i in range(len(img)):
         cc += 1
 print("sum is:", cc)
 '''
-img = img.reshape(28, 28)
-img_show(img)
-
-
 '''
 print(x_train.shape)
 print(t_train.shape)
@@ -146,3 +148,4 @@ print(x_test.shape)
 print(t_test.shape)
 '''
 
+print("this is ch3.py")
