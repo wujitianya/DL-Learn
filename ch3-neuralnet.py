@@ -107,3 +107,5 @@ def neuralnet_patch():
     
     print("Accuracy:" + str(float(accuracy_cnt) / len(x)))
 # neuralnet_patch()
+    
+# 
